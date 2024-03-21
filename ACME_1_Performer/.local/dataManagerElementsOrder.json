@@ -154,6 +154,7 @@
       "Path": "ACME_Process/4_SearchByClientID.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "bool_IfChecked&Sequence_13",
         "boolClientDetailsPage&Sequence_8",
         "boolClient&Sequence_8",
         "strResultClientID&Sequence_9",
@@ -225,11 +226,9 @@
       "VariablesSectionElementsOrder": [
         "in_intTransactionsSum&Sequence_16",
         "boolUpdateBtn&Sequence_4",
-        "boolUpdateWindow&Sequence_13",
-        "strWorkDetails&Sequence_8"
+        "boolUpdateWindow&Sequence_13"
       ],
       "ArgumentsSectionElementsOrder": [
-        "in_intTransactionsSum",
         "in_NumOfRetries",
         "in_RetryInterval",
         "in_TimeOutM",
@@ -251,6 +250,24 @@
         "in_RetryInterval",
         "in_NumOfRetries",
         "in_TimeoutS"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "ACME_Init/ACME_Login.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "boolLoginPage&Sequence_5",
+        "boolInvalidCred&Sequence_19",
+        "bool_DashboradExist&Sequence_9"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_strEmail",
+        "in_strPassword",
+        "in_NumOfRetries",
+        "in_RetryInterval",
+        "in_TimeOutS"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null

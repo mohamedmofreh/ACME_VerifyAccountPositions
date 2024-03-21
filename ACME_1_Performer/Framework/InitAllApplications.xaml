@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1410.4,1314.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>896,1468</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -99,7 +99,7 @@
       <AssemblyReference>System.Net.WebHeaderCollection</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="416,1249.6" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="416,1403.2" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strUserName" />
       <Variable x:TypeArguments="ss:SecureString" Name="sstrPassword" />
@@ -128,49 +128,36 @@
     <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;ACMECred&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="353.6,183.2" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[sstrPassword]" Username="[strUserName]" />
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACME\ACME_Login.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="353.6,153.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="ACME_Init\ACME_Login.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_strEmail">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="new Net.NetworkCredential(strUserName,sstrPassword).Username" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_strPassword">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="new Net.NetworkCredential(strUserName,sstrPassword).Password" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:Int32" x:Key="in_NumOfRetries">
-          <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="Convert.ToInt32( in_Config(&quot;NumOfRetries&quot;))" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_RetryInterval">
-          <VisualBasicValue x:TypeArguments="x:TimeSpan" ExpressionText="TimeSpan.Parse( in_Config(&quot;RetryInterval&quot;).ToString.Split(&quot; &quot;)(1))" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:Int32" x:Key="in_TimeOutS">
-          <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="Convert.ToInt32( in_Config(&quot;TimeoutS&quot;))" />
-        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strEmail">[new Net.NetworkCredential(strUserName,sstrPassword).Username]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strPassword">[new Net.NetworkCredential(strUserName,sstrPassword).Password]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_NumOfRetries">[Convert.ToInt32( in_Config("NumOfRetries"))]</InArgument>
+        <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_RetryInterval">[TimeSpan.Parse( in_Config("RetryInterval").ToString.Split(" ")(1))]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_TimeOutS">[Convert.ToInt32( in_Config("TimeoutS"))]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACME_Init\ACME_DesktopOpen.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="353.6,153.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="ACME_Init\ACME_DesktopOpen.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:Int32" x:Key="in_NumOfRetries">
-          <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="Convert.ToInt32( in_Config(&quot;NumOfRetries&quot;))" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_RetryInterval">
-          <VisualBasicValue x:TypeArguments="x:TimeSpan" ExpressionText="TimeSpan.Parse( in_Config(&quot;RetryInterval&quot;).ToString.Split(&quot; &quot;)(1))" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:Int32" x:Key="in_TimeoutS">
-          <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="Convert.ToInt32( in_Config(&quot;TimeoutS&quot;))" />
-        </InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_NumOfRetries">[Convert.ToInt32( in_Config("NumOfRetries"))]</InArgument>
+        <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_RetryInterval">[TimeSpan.Parse( in_Config("RetryInterval").ToString.Split(" ")(1))]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_TimeoutS">[Convert.ToInt32( in_Config("TimeoutS"))]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACME_Init\ACME_DesotopLogin.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="353.6,136.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="ACME_Init\ACME_DesotopLogin.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACME_Init\ACME_DesotopLogin.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="353.6,153.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="ACME_Init\ACME_DesotopLogin.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_NumOfRetries">[Convert.ToInt32( in_Config("NumOfRetries"))]</InArgument>
+        <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_RetryInterval">[TimeSpan.Parse( in_Config("RetryInterval").ToString.Split(" ")(1))]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strEmail">[new Net.NetworkCredential(strUserName,sstrPassword).Username]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strPass">[new Net.NetworkCredential(strUserName,sstrPassword).Password]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_TimeoutS">[Convert.ToInt32( in_Config("TimeoutS"))]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACME_Process\3_OpenSearchPage.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="353.6,136.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="ACME_Process\3_OpenSearchPage.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:Int32" x:Key="in_NumOfRetries">
           <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="Convert.ToInt32( in_Config(&quot;NumOfRetries&quot;))" />
         </InArgument>
         <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_RetryInterval">
           <VisualBasicValue x:TypeArguments="x:TimeSpan" ExpressionText="TimeSpan.Parse( in_Config(&quot;RetryInterval&quot;).ToString.Split(&quot; &quot;)(1))" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_strEmail">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="new Net.NetworkCredential(strUserName,sstrPassword).Username" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_strPass">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="new Net.NetworkCredential(strUserName,sstrPassword).Password" />
         </InArgument>
         <InArgument x:TypeArguments="x:Int32" x:Key="in_TimeoutS">
           <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="Convert.ToInt32( in_Config(&quot;TimeoutS&quot;))" />

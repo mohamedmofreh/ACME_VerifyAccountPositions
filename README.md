@@ -38,11 +38,11 @@
       <dd>&emsp; ✅  Open the Details page for the selected activity and Read Account Number and Account Amount.</dd>
       <dd>&emsp; ✅  Access the Clients -> Search for Client by Client ID menu option in ACME System 3.</dd>
       <dd>&emsp; ✅  Enter Client based on the ID and double click the Client Name. Also check “Include Inactive Clients” as
-sometimes even &emsp;&emsp;&emsp;active clients will not be found otherwise.</dd>
+            sometimes even active clients will not be found otherwise.</dd>
       <dd>&emsp; ✅  Open the Accounts page for the selected client.</dd>
       <dd>&emsp; ✅  Double click the current account based on its number.</dd>
       <dd>&emsp; ✅  Calculate the sum of all transactions for the specified account.</dd>
       <dd>&emsp; ✅  Go back to the Work Item Details and open the “Update Work Item”.</dd>
-      <dd>&emsp; ✅  If the sum of all transactions in System 3 is equal to the Account amount in System 1, Set the status to Completed and &emsp;&emsp;&emsp;Add comment: 'Account value matches'.</dd>
+      <dd>&emsp; ✅  If the sum of all transactions in System 3 is equal to the Account amount in System 1, Set the status to Completed and Add comment: 'Account                  value matches'.</dd>
   </ol>
 </div>
